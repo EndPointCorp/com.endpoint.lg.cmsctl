@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<project type="activity" builder="java">
+  <name>CMS Control</name>
+  <description>
+Serves a web interface for the Liquid Galaxy Content Management System.
+  </description>
+
+  <identifyingName>com.endpoint.lg.cmsctl</identifyingName>
+  <version>1.0.0.dev</version>
+
+  <resources>
+    <resource destinationDirectory="webapp/lib/is"
+      sourceDirectory="${project.home}/../resources/web/js/is" />
+    <resource destinationDirectory="webapp/lib/cms"
+      sourceDirectory="${project.home}/../resources/web/js/cms" />
+    <resource destinationDirectory="webapp/fonts"
+      sourceFile="${project.home}/../resources/web/fonts/opensans_regular.ttf" />
+    <resource destinationDirectory="webapp/images"
+      sourceDirectory="${project.home}/../resources/web/images/webctl" />
+  </resources>
+
+  <deployments>
+    <deployment type="testdeploy" location="${deployment.test.deploy}" />
+    <deployment type="testimport" location="${deployment.test.import}" />
+  </deployments>
+</project>
