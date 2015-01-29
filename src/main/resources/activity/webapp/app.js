@@ -26,7 +26,8 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', ['ngSanitize', 'IS.Maste
  */
 .value('Apps', {
   StreetView: 'streetview',
-  Earth: 'earth'
+  Earth: 'earth',
+  Director: 'director'
 })
 
 /**

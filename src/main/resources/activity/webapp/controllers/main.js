@@ -23,7 +23,20 @@
  * 
  * @author Matt Vollrath <matt@endpoint.com>
  */
-function MainController($scope, $rootScope, $timeout, EarthService, StreetViewService, Apps, MapModes, Planets, EarthMessages, StreetViewMessages, UIEvents) {
+function MainController(
+  $scope,
+  $rootScope,
+  $timeout,
+  EarthService,
+  StreetViewService,
+//  DirectorService, // later. using iframe for now.
+  Apps,
+  MapModes,
+  Planets,
+  EarthMessages,
+  StreetViewMessages,
+  UIEvents
+) {
   $scope.searching = false;
   $scope.zoom = null;
   $scope.planet = Planets.Earth;
@@ -49,6 +62,9 @@ function MainController($scope, $rootScope, $timeout, EarthService, StreetViewSe
     } else if (app == Apps.StreetView) {
       StreetViewService.activate();
       EarthService.deactivate();
+    } else if (app == Apps.Director) {
+      EarthService.activate();
+      StreetViewService.deactivate();
     }
   });
 
