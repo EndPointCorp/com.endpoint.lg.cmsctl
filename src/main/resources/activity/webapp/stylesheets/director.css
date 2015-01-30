@@ -1,0 +1,18 @@
+#presentations {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 1320px;
+  left: 600px;
+  border: none;
+  background-color: #d5d9dc;
+  transition: opacity 0.25s ease-out;
+}
+
+/* Micro Clearfix by Nicolas Gallagher - http://nicolasgallagher.com/micro-clearfix-hack */
+        /* For modern browsers */
+        .cf:before, .cf:after {content:""; display:table;}
+        .cf:after {clear:both;}
+
+        /* For IE 6/7 (trigger hasLayout) */
+        .cf {zoom:1;}

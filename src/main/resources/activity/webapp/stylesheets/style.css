@@ -56,7 +56,7 @@ html body {
   transition: all 0.25s ease-out;
 }
 
-#bluelayer>.earth {
+#bluelayer>.earth, #bluelayer>.notearth {
   width: 755px;
   background-image: url('../images/bluelayer_earth.png');
 }

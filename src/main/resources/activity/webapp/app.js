@@ -19,7 +19,11 @@
  * 
  * @author Matt Vollrath <matt@endpoint.com>
  */
-var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', ['ngSanitize', 'IS.MasterModule', 'IS.MessageModule', 'director'])
+var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
+  'ngSanitize',
+  'IS.MasterModule',
+  'IS.MessageModule'
+])
 
 /**
  * Apps are user-facing applications that fill the main displays. 
@@ -84,6 +88,10 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', ['ngSanitize', 'IS.Maste
     Query: 'Search.query',
     Activated: 'Search.activated',
     Deactivated: 'Search.deactivated'
+  },
+  Director: {
+    Activated: 'Director.activated',
+    Deactivated: 'Director.deactivated'
   }
 })
 
