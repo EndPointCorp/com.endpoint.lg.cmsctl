@@ -10,13 +10,13 @@ Serves a web interface for the Liquid Galaxy Content Management System.
 
   <resources>
     <resource destinationDirectory="webapp/lib/is"
-      sourceDirectory="${project.home}/../resources/web/js/is" />
+      sourceDirectory="${project.home}/../activity-resources/web/js/is" />
     <resource destinationDirectory="webapp/lib/cms"
-      sourceDirectory="${project.home}/../resources/web/js/cms" />
+      sourceDirectory="${project.home}/../activity-resources/web/js/cms" />
     <resource destinationDirectory="webapp/fonts"
-      sourceFile="${project.home}/../resources/web/fonts/opensans_regular.ttf" />
+      sourceFile="${project.home}/../activity-resources/web/fonts/opensans_regular.ttf" />
     <resource destinationDirectory="webapp/images"
-      sourceDirectory="${project.home}/../resources/web/images/webctl" />
+      sourceDirectory="${project.home}/../activity-resources/web/images/webctl" />
   </resources>
 
   <deployments>
