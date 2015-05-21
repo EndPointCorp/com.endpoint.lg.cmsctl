@@ -138,6 +138,11 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
   },
 ])
 
+.value('MapTypes', {
+  'streetview': google.maps.MapTypeId.ROADMAP,
+  'earth': google.maps.MapTypeId.HYBRID
+})
+
 /**
  * Points of Interest for each category.
  */

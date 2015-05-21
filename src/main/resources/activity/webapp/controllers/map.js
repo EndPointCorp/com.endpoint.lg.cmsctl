@@ -20,7 +20,7 @@
  * 
  * @author Matt Vollrath <matt@endpoint.com>
  */
-function MapController($scope, $rootScope, $timeout, MapConfig, MapStyles, Apps, MapModes, Planets, EarthMessages, StreetViewMessages, UIEvents) {
+function MapController($scope, $rootScope, $timeout, MapConfig, MapStyles, MapTypes, Apps, MapModes, Planets, EarthMessages, StreetViewMessages, UIEvents) {
   $scope.map = null;
   $scope.svCoverageLayer = new google.maps.StreetViewCoverageLayer();
   $scope.svSvc = new google.maps.StreetViewService();
@@ -39,7 +39,8 @@ function MapController($scope, $rootScope, $timeout, MapConfig, MapStyles, Apps,
       zoom: 8,
       disableDefaultUI: true,
       styles: MapStyles,
-      center: MapConfig.DefaultCenter
+      center: MapConfig.DefaultCenter,
+      mapTypeId: MapTypes.earth
     }
   );
 
@@ -197,5 +198,12 @@ function MapController($scope, $rootScope, $timeout, MapConfig, MapStyles, Apps,
         $scope.map.setZoom(Math.max(MapConfig.MinStreetViewZoomLevel, $scope.map.getZoom()));
       }
     })
+  });
+
+  /**
+   * Handle map mode changes.
+   */
+  $scope.$on(UIEvents.MapMode.SelectMode, function($event, mode) {
+    $scope.map.setMapTypeId(MapTypes[mode]);
   });
 }
