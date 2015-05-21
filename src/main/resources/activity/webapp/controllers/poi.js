@@ -30,7 +30,7 @@ function PoiController($scope, $rootScope, $sanitize, PoiContent, UIEvents) {
     }
   }
 
-  $scope.content = PoiContent[$scope.planet];
+  $scope.content = PoiContent[$scope.poi_category];
 
   /**
    * Broadcasts a POI selection.
@@ -54,10 +54,10 @@ function PoiController($scope, $rootScope, $sanitize, PoiContent, UIEvents) {
   $rootScope.$on(UIEvents.Search.Query, $scope.selectNone);
 
   /**
-   * Handler for planet changes, causing new content to be loaded.
+   * Handler for POI category changes, causing new content to be loaded.
    */
-  $rootScope.$on(UIEvents.Planet.SelectPlanet, function($event, planet) {
+  $rootScope.$on(UIEvents.Poi.SelectCategory, function($event, category) {
     $scope.selectNone();
-    $scope.content = PoiContent[planet];
+    $scope.content = PoiContent[category];
   });
 }

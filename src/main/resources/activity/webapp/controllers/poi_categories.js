@@ -16,16 +16,16 @@
  */
 
 /**
- * Controller for the Planet selector.
+ * Controller for the POI category selector.
  * 
  * @author Matt Vollrath <matt@endpoint.com>
  */
-function PlanetController($scope, $rootScope, UIEvents) {
+function PoiCategoriesController($scope, $rootScope, UIEvents) {
 
   /**
-   * Broadcast planet selections. 
+   * Broadcast POI category selections. 
    */
-  $scope.selectPlanet = function(planet) {
-    $rootScope.$broadcast(UIEvents.Planet.SelectPlanet, planet);
+  $scope.selectPoiCategory = function(category) {
+    $rootScope.$broadcast(UIEvents.Poi.SelectCategory, category);
   }
 }

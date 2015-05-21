@@ -1,0 +1,11 @@
+<div id="poi_categories" ng-controller="PoiCategoriesController">
+  <div ng-class="poi_category == 'first' ? 'first_hl' : 'first'" ng-click="selectPoiCategory('first')">
+    <span ng-class="{selected: selectedPoiCategory=='first'}">First</span>
+  </div>
+  <div ng-class="poi_category == 'second' ? 'second_hl' : 'second'" ng-click="selectPoiCategory('second')">
+    <span ng-class="{selected: selectedPoiCategory=='second'}">Second</span>
+  </div>
+  <div ng-class="poi_category == 'third' ? 'third_hl' : 'third'" ng-click="selectPoiCategory('third')">
+    <span ng-class="{selected: selectedPoiCategory=='third'}">Third</span>
+  </div>
+</div>

@@ -275,7 +275,7 @@ html body {
   background-image: url('../images/mode_streetview_hl.png');
 }
 
-#planet {
+#poi_categories {
   position: absolute;
   z-index: 2;
   top: 950px;
@@ -285,7 +285,7 @@ html body {
   left: 160px;
 }
 
-#planet>div {
+#poi_categories>div {
   display: inline-block;
   width: 91px;
   height: 91px;
@@ -296,7 +296,7 @@ html body {
   transition: background-image 0.25s ease-out;
 }
 
-#planet>div>span {
+#poi_categories>div>span {
   position: absolute;
   bottom: -18px;
   width: 91px;
@@ -306,30 +306,30 @@ html body {
   transition: text-shadow 0.25s ease-out;
 }
 
-#planet>div>span.selected {
+#poi_categories>div>span.selected {
   text-shadow: 0 0 12px #00FFFF;
 }
 
-#planet>.earth {
+#poi_categories>.first {
   background-image: url('../images/planet_earth.png');
 }
 
-#planet>.moon {
+#poi_categories>.second {
   background-image: url('../images/planet_moon.png');
 }
 
-#planet>.mars {
+#poi_categories>.third {
   background-image: url('../images/planet_mars.png');
 }
 
-#planet>.earth_hl {
+#poi_categories>.first_hl {
   background-image: url('../images/planet_earth_hl.png');
 }
 
-#planet>.moon_hl {
+#poi_categories>.second_hl {
   background-image: url('../images/planet_moon_hl.png');
 }
 
-#planet>.mars_hl {
+#poi_categories>.third_hl {
   background-image: url('../images/planet_mars_hl.png');
 }

@@ -67,6 +67,15 @@ LiquidGalaxyApp.value('Planets', {
 });
 
 /**
+ * Generic identifiers for POI categories.
+ */
+LiquidGalaxyApp.value('PoiCategories', {
+  First: 'first',
+  Second: 'second',
+  Third: 'third'
+});
+
+/**
  * Message types for websocket communication.
  */
 LiquidGalaxyApp.value('EarthMessages', {

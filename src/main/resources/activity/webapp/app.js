@@ -83,7 +83,8 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
     SelectPlanet: 'Planet.selectPlanet'
   },
   Poi: {
-    SelectPoi: 'Poi.selectPoi'
+    SelectPoi: 'Poi.selectPoi',
+    SelectCategory: 'Poi.selectCategory'
   },
   Search: {
     Query: 'Search.query',
@@ -138,10 +139,10 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
 ])
 
 /**
- * Points of Interest for each planet.
+ * Points of Interest for each category.
  */
 .value('PoiContent', {
-  'earth': [
+  'first': [
     { style: "outdoor", title: "Tower of Pisa, Pisa", type: "earth", abstractView: {
       type: "lookat",
       location: {
@@ -218,7 +219,7 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
     { style: "indoor", title: "State Dining Room,<br />The White House", type: "streetview", panoid: "I5NDPRik49udZwxm4LYdCQ", heading: 90 },
     { style: "ocean", title: "Playful Sea Lions, Galapagos", type: "streetview", panoid: "0yfJCnICQIUAAAQIt--IJw", heading: 54 }
   ],
-  'moon': [
+  'second': [
     { style: "outdoor", title: "Apollo 11", type: "earth" },
     { style: "outdoor", title: "Mare Ingenii", type: "earth" },
     { style: "outdoor", title: "Lacus Excellentiae", type: "earth" },
@@ -227,7 +228,7 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
     { style: "outdoor", title: "Montes Riphaeus", type: "earth" },
     { style: "outdoor", title: "Rima Cleopatra", type: "earth" }
   ],
-  'mars': [
+  'third': [
     { style: "outdoor", title: "Curiosity Landing Site", type: "earth" },
     { style: "outdoor", title: "Opportunity Landing Site", type: "earth" },
     { style: "outdoor", title: "Olympus Mons", type: "earth" },

@@ -34,6 +34,7 @@ function MainController(
   Apps,
   MapModes,
   Planets,
+  PoiCategories,
   EarthMessages,
   StreetViewMessages,
   UIEvents
@@ -41,6 +42,7 @@ function MainController(
   $scope.searching = false;
   $scope.zoom = null;
   $scope.planet = Planets.Earth;
+  $scope.poi_category = PoiCategories.First;
   $scope.mapMode = MapModes.Earth;
   $scope.activeApp = Apps.Earth;
   $scope.panoData = null;
@@ -192,6 +194,13 @@ function MainController(
    */
   $scope.$on(UIEvents.Planet.SelectPlanet, function($event, planet) {
     $scope.planet = planet;
+  });
+
+  /**
+   * Handle POI category changes from UI.
+   */
+  $scope.$on(UIEvents.Poi.SelectCategory, function($event, category) {
+    $scope.poi_category = category;
   });
 
   /**
