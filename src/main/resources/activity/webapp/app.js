@@ -26,6 +26,11 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
   'IS.MessageModule'
 ])
 
+.value('Director', {
+  Hostname: IS.Configuration['lg.director.hostname'],
+  Port: IS.Configuration['lg.director.port']
+})
+
 /**
  * Apps are user-facing applications that fill the main displays. 
  */
