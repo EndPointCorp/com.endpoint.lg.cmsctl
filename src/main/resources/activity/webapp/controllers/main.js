@@ -34,15 +34,14 @@ function MainController(
   Apps,
   MapModes,
   Planets,
-  PoiCategories,
   EarthMessages,
   StreetViewMessages,
+  DirectorEvents,
   UIEvents
 ) {
   $scope.searching = false;
   $scope.zoom = null;
   $scope.planet = Planets.Earth;
-  $scope.poi_category = PoiCategories.First;
   $scope.mapMode = MapModes.Earth;
   $scope.activeApp = Apps.Earth;
   $scope.panoData = null;
@@ -211,6 +210,22 @@ function MainController(
   });
   $scope.$on(UIEvents.Search.Deactivated, function() {
     $scope.searching = false;
+  });
+
+  /**
+   * Follow scene changes with active app changes.
+   */
+  $scope.$on(DirectorEvents.SceneChanged, function($event, scene) {
+    var app = Apps.Earth;
+    for (var i = 0; i < scene.windows.length; i++) {
+      var w = scene.windows[i];
+      if (w.activity == 'streetview') {
+        app = Apps.StreetView;
+        break;
+      }
+    }
+
+    $scope.activeApp = app;
   });
 
   /**

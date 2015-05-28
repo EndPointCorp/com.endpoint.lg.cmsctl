@@ -29,6 +29,7 @@ function MapController($scope, $rootScope, $timeout, MapConfig, MapStyles, MapTy
   $scope.coverage = false;
   $scope.mapTakeover = false;
   $scope.mapTakeoverTimeout = null;
+  $scope.lastTakeoverLatLng = null;
 
   /**
    * Instantiate the map.
@@ -182,10 +183,19 @@ function MapController($scope, $rootScope, $timeout, MapConfig, MapStyles, MapTy
     var zoom = (EarthAltitudeMaxLog - altitude) / ((EarthAltitudeMaxLog - EarthAltitudeMinLog) / (MapConfig.MapZoomMax - MapConfig.MapZoomMin)) + MapConfig.MapZoomMin;
     zoom -= zoom % 1;
     zoom = Math.min(Math.max(zoom + MapConfig.MapZoomFudge, MapConfig.MapZoomMin), MapConfig.MapZoomMax);
-    $scope.map.setZoom(zoom);
 
     var latLng = new google.maps.LatLng(viewsyncData.latitude, viewsyncData.longitude);
+
+    // ignore noops
+    if ($scope.lastTakeoverLatLng && latLng.equals($scope.lastTakeoverLatLng)) {
+      console.debug('Redundant Earth view:', latLng);
+      return;
+    }
+
+    //console.debug('Earth View takeover');
+    $scope.map.setZoom(zoom);
     $scope.map.panTo(latLng);
+    $scope.lastTakeoverLatLng = angular.copy(latLng);
   });
 
   /**
@@ -194,6 +204,7 @@ function MapController($scope, $rootScope, $timeout, MapConfig, MapStyles, MapTy
   $scope.$on(StreetViewMessages.PanoChanged, function($event, panoMessage) {
     $scope.svSvc.getPanoramaById(panoMessage.panoid, function(data, stat) {
       if (stat == google.maps.StreetViewStatus.OK) {
+        //console.debug('Street View pano takeover');
         $scope.map.panTo(data.location.latLng);
         $scope.map.setZoom(Math.max(MapConfig.MinStreetViewZoomLevel, $scope.map.getZoom()));
       }

@@ -1,3 +1,26 @@
-<div id="director" ng-controller="DirectorController" ng-show="directing">
-  <iframe id="presentations" src="http://lg-head:8060/index_presentations.html">
+<div ng-controller="DirectorController">
+
+<div id="scenes">
+  <ul>
+    <li ng-repeat="scene in presentation.scenes | object2Array | orderBy:'name' | limitTo: 10"
+        ng-class="['outdoor', 'curve'+$index]"
+        ng-click="fetch_scene(scene.resource_uri)">
+    <span ng-class="{selected: scene.slug==sceneSelected}"
+          ng-show="scene.name"
+          ng-bind-html="scene.name"></span>
+    </li>
+  </ul>
+</div>
+
+<div id="presentations">
+  <div ng-class="'presentation'+$index"
+       ng-repeat="presentation in group.presentations | orderBy:'description' | limitTo: 3"
+       ng-click="fetch_presentation(presentation.resource_uri)">
+    <span ng-class="{selected: presentation.slug==presentationSelected}"
+          ng-show="presentation.description"
+          ng-bind-html="presentation.description">
+    </span>
+  </div>
+</div>
+
 </div>

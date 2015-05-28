@@ -31,6 +31,10 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
   Port: IS.Configuration['lg.director.port']
 })
 
+.value('DirectorEvents', {
+  SceneChanged: 'DirectorEvents.SceneChanged'
+})
+
 /**
  * Apps are user-facing applications that fill the main displays. 
  */
@@ -247,4 +251,20 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
     { style: "outdoor", title: "Chasma Boreale", type: "earth" },
     { style: "outdoor", title: "Valles Marineris", type: "earth" }
   ]
+})
+
+.filter('reverse', function() {
+  return function(items) {
+    return items ? items.slice().reverse() : items;
+  };
+})
+
+.filter('object2Array', function() {
+  return function(input) {
+    var out = [];
+    for(i in input){
+      out.push(input[i]);
+    }
+    return out;
+  }
 });
