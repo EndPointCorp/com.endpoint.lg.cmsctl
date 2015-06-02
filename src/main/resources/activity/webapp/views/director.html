@@ -2,7 +2,7 @@
 
 <div id="scenes">
   <ul>
-    <li ng-repeat="scene in presentation.scenes | object2Array | orderBy:'name' | limitTo: 10"
+    <li ng-repeat="scene in presentation.scenes | object2Array | limitTo: 10"
         ng-class="['outdoor', 'curve'+$index]"
         ng-click="fetch_scene(scene.resource_uri)">
     <span ng-class="{selected: scene.slug==sceneSelected}"
