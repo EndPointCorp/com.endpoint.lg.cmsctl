@@ -6,7 +6,7 @@ Serves a web interface for the Liquid Galaxy Content Management System.
   </description>
 
   <identifyingName>com.endpoint.lg.cmsctl</identifyingName>
-  <version>1.0.0.dev</version>
+  <version>1.1.0</version>
 
   <resources>
     <resource destinationDirectory="webapp/lib/is"
@@ -18,6 +18,90 @@ Serves a web interface for the Liquid Galaxy Content Management System.
     <resource destinationDirectory="webapp/images"
       sourceDirectory="${project.home}/../activity-resources/web/images/webctl" />
   </resources>
+
+  <activity type="interactivespaces_native">
+      <name>comEndpointLgCMSCtl</name>
+      <class>com.endpoint.lg.cmsctl.CMSCtlActivity</class>
+      <configuration>
+          <!--
+        <property name="space.activity.webapp.url.query_string">
+            <value>test</value>
+        </property>
+            -->
+        <property name="space.activity.log.level">
+            <value>info</value>
+        </property>
+        <property name="space.activity.webapp.content.location">
+            <value>webapp</value>
+        </property>
+        <property name="space.activity.webapp.url.initial">
+            <value>index.html</value>
+        </property>
+        <property name="space.activity.webapp.browser.debug">
+            <value>false</value>
+        </property>
+        <property name="space.activity.webapp.web.server.port">
+            <value>8999</value>
+        </property>
+        <property name="lg.master.api.uri">
+            <value>http://localhost:8080/interactivespaces</value>
+        </property>
+        <property name="lg.cmsctl.group.earth">
+            <value>Google Earth</value>
+        </property>
+        <property name="lg.cmsctl.group.streetview">
+            <value>Google Street View</value>
+        </property>
+        <property name="lg.director.hostname">
+            <value>lg-head</value>
+        </property>
+        <property name="lg.director.port">
+            <value>8060</value>
+        </property>
+        <property name="lg.director.touchscreen.group">
+            <value>group</value>
+        </property>
+        <property name="lg.director.touchscreen.presentation">
+            <value>presentation</value>
+        </property>
+        <property name="lg.director.touchscreen.scene">
+            <value>scene</value>
+        </property>
+        <property name="lg.director.touchscreen.scene_timer">
+            <value>scene_timer</value>
+        </property>
+        <property name="lg.director.touchscreen.director_api">
+            <value>director_api</value>
+        </property>
+        <property name="space.activity.ros.node.name">
+            <value>liquidgalaxy/cmsctl/${space.activity.group}</value>
+        </property>
+        <property name="space.activity.routes.inputs">
+            <value>pov:pano:earthpos</value>
+        </property>
+        <property name="space.activity.route.input.pov">
+            <value>/liquidgalaxy/${space.activity.group}/streetview/pov</value>
+        </property>
+        <property name="space.activity.route.input.pano">
+            <value>/liquidgalaxy/${space.activity.group}/streetview/pano</value>
+        </property>
+        <property name="space.activity.route.input.earthpos">
+            <value>/liquidgalaxy/${space.activity.group}/earth/viewsync</value>
+        </property>
+        <property name="space.activity.routes.outputs">
+            <value>pov:pano:query</value>
+        </property>
+        <property name="space.activity.route.output.pov">
+            <value>/liquidgalaxy/${space.activity.group}/streetview/pov</value>
+        </property>
+        <property name="space.activity.route.output.pano">
+            <value>/liquidgalaxy/${space.activity.group}/streetview/pano</value>
+        </property>
+        <property name="space.activity.route.output.query">
+            <value>/liquidgalaxy/${space.activity.group}/earth/query</value>
+        </property>
+      </configuration>
+  </activity>
 
   <deployments>
     <deployment type="testdeploy" location="${deployment.test.deploy}" />
