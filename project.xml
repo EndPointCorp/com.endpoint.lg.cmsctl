@@ -28,6 +28,9 @@ Serves a web interface for the Liquid Galaxy Content Management System.
             <value>test</value>
         </property>
             -->
+        <property name="space.activity.group">
+            <value>generic</value>
+        </property>
         <property name="space.activity.log.level">
             <value>info</value>
         </property>
