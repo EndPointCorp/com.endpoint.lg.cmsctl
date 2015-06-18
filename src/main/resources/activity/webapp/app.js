@@ -26,6 +26,15 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
   'IS.MessageModule'
 ])
 
+.value('Director', {
+  Hostname: IS.Configuration['lg.director.hostname'],
+  Port: IS.Configuration['lg.director.port']
+})
+
+.value('DirectorEvents', {
+  SceneChanged: 'DirectorEvents.SceneChanged'
+})
+
 /**
  * Apps are user-facing applications that fill the main displays. 
  */
@@ -83,7 +92,8 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
     SelectPlanet: 'Planet.selectPlanet'
   },
   Poi: {
-    SelectPoi: 'Poi.selectPoi'
+    SelectPoi: 'Poi.selectPoi',
+    SelectCategory: 'Poi.selectCategory'
   },
   Search: {
     Query: 'Search.query',
@@ -137,11 +147,16 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
   },
 ])
 
+.value('MapTypes', {
+  'streetview': google.maps.MapTypeId.ROADMAP,
+  'earth': google.maps.MapTypeId.HYBRID
+})
+
 /**
- * Points of Interest for each planet.
+ * Points of Interest for each category.
  */
 .value('PoiContent', {
-  'earth': [
+  'first': [
     { style: "outdoor", title: "Tower of Pisa, Pisa", type: "earth", abstractView: {
       type: "lookat",
       location: {
@@ -218,7 +233,7 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
     { style: "indoor", title: "State Dining Room,<br />The White House", type: "streetview", panoid: "I5NDPRik49udZwxm4LYdCQ", heading: 90 },
     { style: "ocean", title: "Playful Sea Lions, Galapagos", type: "streetview", panoid: "0yfJCnICQIUAAAQIt--IJw", heading: 54 }
   ],
-  'moon': [
+  'second': [
     { style: "outdoor", title: "Apollo 11", type: "earth" },
     { style: "outdoor", title: "Mare Ingenii", type: "earth" },
     { style: "outdoor", title: "Lacus Excellentiae", type: "earth" },
@@ -227,7 +242,7 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
     { style: "outdoor", title: "Montes Riphaeus", type: "earth" },
     { style: "outdoor", title: "Rima Cleopatra", type: "earth" }
   ],
-  'mars': [
+  'third': [
     { style: "outdoor", title: "Curiosity Landing Site", type: "earth" },
     { style: "outdoor", title: "Opportunity Landing Site", type: "earth" },
     { style: "outdoor", title: "Olympus Mons", type: "earth" },
@@ -236,4 +251,20 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
     { style: "outdoor", title: "Chasma Boreale", type: "earth" },
     { style: "outdoor", title: "Valles Marineris", type: "earth" }
   ]
+})
+
+.filter('reverse', function() {
+  return function(items) {
+    return items ? items.slice().reverse() : items;
+  };
+})
+
+.filter('object2Array', function() {
+  return function(input) {
+    var out = [];
+    for(i in input){
+      out.push(input[i]);
+    }
+    return out;
+  }
 });

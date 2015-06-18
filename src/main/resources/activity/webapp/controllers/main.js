@@ -36,6 +36,7 @@ function MainController(
   Planets,
   EarthMessages,
   StreetViewMessages,
+  DirectorEvents,
   UIEvents
 ) {
   $scope.searching = false;
@@ -195,6 +196,13 @@ function MainController(
   });
 
   /**
+   * Handle POI category changes from UI.
+   */
+  $scope.$on(UIEvents.Poi.SelectCategory, function($event, category) {
+    $scope.poi_category = category;
+  });
+
+  /**
    * Handle search state changes from the search box.
    */
   $scope.$on(UIEvents.Search.Activated, function() {
@@ -202,6 +210,22 @@ function MainController(
   });
   $scope.$on(UIEvents.Search.Deactivated, function() {
     $scope.searching = false;
+  });
+
+  /**
+   * Follow scene changes with active app changes.
+   */
+  $scope.$on(DirectorEvents.SceneChanged, function($event, scene) {
+    var app = Apps.Earth;
+    for (var i = 0; i < scene.windows.length; i++) {
+      var w = scene.windows[i];
+      if (w.activity == 'streetview') {
+        app = Apps.StreetView;
+        break;
+      }
+    }
+
+    $scope.activeApp = app;
   });
 
   /**

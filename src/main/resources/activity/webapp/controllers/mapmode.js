@@ -20,7 +20,7 @@
  * 
  * @author Matt Vollrath <matt@endpoint.com>
  */
-function MapModeController($scope, $rootScope, MapConfig, MapModes, Planets, StreetViewMessages, UIEvents) {
+function MapModeController($scope, $rootScope, MapConfig, MapModes, Planets, StreetViewMessages, UIEvents, DirectorEvents) {
 
   /**
    * Broadcasts the selected mode.
@@ -41,7 +41,8 @@ function MapModeController($scope, $rootScope, MapConfig, MapModes, Planets, Str
    * Returns true if the mode selector should be visible.
    */
   $scope.checkVisibility = function() {
-    return $scope.planet == Planets.Earth && !$scope.searching && ($scope.mode == MapModes.StreetView || $scope.zoom >= MapConfig.MinStreetViewZoomLevel);
+    //return $scope.planet == Planets.Earth && !$scope.searching && ($scope.mode == MapModes.StreetView || $scope.zoom >= MapConfig.MinStreetViewZoomLevel);
+    return $scope.planet == Planets.Earth && !$scope.searching;
   }
 
   /**
@@ -70,5 +71,21 @@ function MapModeController($scope, $rootScope, MapConfig, MapModes, Planets, Str
    */
   $scope.$on(StreetViewMessages.PanoChanged, function($event) {
     $scope.selectMode(MapModes.StreetView);
+  });
+
+  /**
+   * Follow scene changes with map mode changes.
+   */
+  $scope.$on(DirectorEvents.SceneChanged, function($event, scene) {
+    var mode = MapModes.Earth;
+    for (var i = 0; i < scene.windows.length; i++) {
+      var w = scene.windows[i];
+      if (w.activity == 'streetview') {
+        mode = MapModes.StreetView;
+        break;
+      }
+    }
+
+    $scope.selectMode(mode);
   });
 }

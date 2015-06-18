@@ -99,7 +99,7 @@ html body {
   background-image: url('../images/planet_mars.png');
 }
 
-#poi {
+#scenes {
   position: absolute;
   z-index: 3;
   top: 95px;
@@ -109,21 +109,21 @@ html body {
   left: 10px;
 }
 
-#poi>ul {
+#scenes>ul {
   margin: 0px;
   padding: 0px;
   transition: margin-left 0.25s ease-out;
 }
 
-#poi>ul.mars {
+#scenes>ul.mars {
   margin-left: 131px;
 }
 
-#poi>ul.moon {
+#scenes>ul.moon {
   margin-left: 262px;
 }
 
-#poi>ul>li {
+#scenes>ul>li {
   height: 72px;
   line-height: 72px;
   width: 300px;
@@ -134,7 +134,7 @@ html body {
   background-position: left center;
 }
 
-#poi>ul>li>span {
+#scenes>ul>li>span {
   display: inline-block;
   line-height: normal;
   vertical-align: middle;
@@ -143,7 +143,7 @@ html body {
   transition: text-shadow 0.25s ease-out;
 }
 
-#poi>ul>li>span.selected {
+#scenes>ul>li>span.selected {
   text-shadow: 0 0 12px #00FFFF;
 }
 
@@ -275,7 +275,7 @@ html body {
   background-image: url('../images/mode_streetview_hl.png');
 }
 
-#planet {
+#presentations {
   position: absolute;
   z-index: 2;
   top: 950px;
@@ -285,7 +285,7 @@ html body {
   left: 160px;
 }
 
-#planet>div {
+#presentations>div {
   display: inline-block;
   width: 91px;
   height: 91px;
@@ -296,7 +296,7 @@ html body {
   transition: background-image 0.25s ease-out;
 }
 
-#planet>div>span {
+#presentations>div>span {
   position: absolute;
   bottom: -18px;
   width: 91px;
@@ -306,30 +306,30 @@ html body {
   transition: text-shadow 0.25s ease-out;
 }
 
-#planet>div>span.selected {
+#presentations>div>span.selected {
   text-shadow: 0 0 12px #00FFFF;
 }
 
-#planet>.earth {
+#presentations>.presentation0 {
   background-image: url('../images/planet_earth.png');
 }
 
-#planet>.moon {
-  background-image: url('../images/planet_moon.png');
+#presentations>.presentation1 {
+  background-image: url('../images/planet_earth.png');
 }
 
-#planet>.mars {
-  background-image: url('../images/planet_mars.png');
+#presentations>.presentation2 {
+  background-image: url('../images/planet_earth.png');
 }
 
-#planet>.earth_hl {
+#presentations>.presentation0_hl {
   background-image: url('../images/planet_earth_hl.png');
 }
 
-#planet>.moon_hl {
-  background-image: url('../images/planet_moon_hl.png');
+#presentations>.presentation1_hl {
+  background-image: url('../images/planet_earth_hl.png');
 }
 
-#planet>.mars_hl {
-  background-image: url('../images/planet_mars_hl.png');
+#presentations>.presentation2_hl {
+  background-image: url('../images/planet_earth_hl.png');
 }
