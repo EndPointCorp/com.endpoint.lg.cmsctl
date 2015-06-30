@@ -27,6 +27,13 @@
 
   <body ng-controller="MainController" oncontextmenu="return false;">
 
+    <script type="text/javascript">
+      if (typeof(IS) === 'undefined' || !IS.hasOwnProperty('Configuration')) {
+        console.error('Configuration load failed, scheduling refresh');
+        setTimeout(window.location.reload, 1000);
+      }
+    </script>
+
     <div class="preload-images"></div>
 
     <div ng-include="'views/bluelayer.html'"></div>
