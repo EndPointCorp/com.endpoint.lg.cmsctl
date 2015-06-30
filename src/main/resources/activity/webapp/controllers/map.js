@@ -172,7 +172,7 @@ function MapController($scope, $rootScope, $timeout, MapConfig, MapStyles, MapTy
    * TODO: refactor viewsync to latLng conversion
    */
   $scope.$on(EarthMessages.ViewChanged, function($event, viewsyncData) {
-    if ($scope.activeApp != Apps.Earth || $scope.mapTakeover) return;
+    if (($scope.activeApp != Apps.Earth && $scope.activeApp != Apps.Director) || $scope.mapTakeover) return;
 
     var altitude = viewsyncData.altitude;
     altitude = Math.log(Math.max(altitude - MapConfig.EarthAltitudeMin, MapConfig.EarthAltitudeMin));
