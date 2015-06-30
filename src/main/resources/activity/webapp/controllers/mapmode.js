@@ -77,15 +77,20 @@ function MapModeController($scope, $rootScope, MapConfig, MapModes, Planets, Str
    * Follow scene changes with map mode changes.
    */
   $scope.$on(DirectorEvents.SceneChanged, function($event, scene) {
-    var mode = MapModes.Earth;
+    var mode = null;
     for (var i = 0; i < scene.windows.length; i++) {
       var w = scene.windows[i];
       if (w.activity == 'streetview') {
         mode = MapModes.StreetView;
         break;
+      } else if (w.activity == 'earth') {
+        mode = MapModes.Earth;
+        break;
       }
     }
 
-    $scope.selectMode(mode);
+    if (mode !== null) {
+      $scope.selectMode(mode);
+    }
   });
 }

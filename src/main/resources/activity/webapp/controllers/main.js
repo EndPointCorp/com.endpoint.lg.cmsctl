@@ -60,6 +60,7 @@ function MainController(
    * Control the active app.
    */
   $scope.$watch('activeApp', function(app) {
+    console.log('activeApp is now', app);
     if (app == Apps.Earth) {
       EarthService.activate();
       StreetViewService.deactivate();
@@ -69,9 +70,7 @@ function MainController(
       EarthService.deactivate();
       PanoViewerService.deactivate();
     } else if (app == Apps.Director) {
-      EarthService.activate();
-      StreetViewService.deactivate();
-      PanoViewerService.deactivate();
+      // let director.bridge handle this
     }
   });
 
@@ -221,16 +220,23 @@ function MainController(
    * Follow scene changes with active app changes.
    */
   $scope.$on(DirectorEvents.SceneChanged, function($event, scene) {
-    var app = Apps.Earth;
+    console.log('SceneChanged to', scene);
+    var app = Apps.Director;
     for (var i = 0; i < scene.windows.length; i++) {
       var w = scene.windows[i];
       if (w.activity == 'streetview') {
         app = Apps.StreetView;
         break;
+      } else if (w.activity == 'earth') {
+        app = Apps.Earth;
+        break;
       }
     }
 
     $scope.activeApp = app;
+    if(!$scope.$$phase) {
+      $scope.$apply();
+    }
   });
 
   /**
