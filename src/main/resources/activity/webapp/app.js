@@ -49,7 +49,8 @@ var LiquidGalaxyApp = angular.module('LiquidGalaxyApp', [
  */
 .value('ActivityGroups', {
   StreetView: IS.Configuration['lg.cmsctl.group.streetview'],
-  Earth: IS.Configuration['lg.cmsctl.group.earth']
+  Earth: IS.Configuration['lg.cmsctl.group.earth'],
+  PanoViewer: IS.Configuration['lg.cmsctl.group.panoviewer']
 })
 
 /**

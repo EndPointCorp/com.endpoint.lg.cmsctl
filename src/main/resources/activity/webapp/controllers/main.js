@@ -30,6 +30,7 @@ function MainController(
   $timeout,
   EarthService,
   StreetViewService,
+  PanoViewerService,
 //  DirectorService, // later. using iframe for now.
   Apps,
   MapModes,
@@ -53,6 +54,7 @@ function MainController(
    */
   EarthService.startup();
   StreetViewService.startup();
+  PanoViewerService.startup();
 
   /**
    * Control the active app.
@@ -61,12 +63,15 @@ function MainController(
     if (app == Apps.Earth) {
       EarthService.activate();
       StreetViewService.deactivate();
+      PanoViewerService.deactivate();
     } else if (app == Apps.StreetView) {
       StreetViewService.activate();
       EarthService.deactivate();
+      PanoViewerService.deactivate();
     } else if (app == Apps.Director) {
       EarthService.activate();
       StreetViewService.deactivate();
+      PanoViewerService.deactivate();
     }
   });
 

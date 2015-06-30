@@ -55,6 +55,9 @@ Serves a web interface for the Liquid Galaxy Content Management System.
         <property name="lg.cmsctl.group.streetview">
             <value>Google Street View</value>
         </property>
+        <property name="lg.cmsctl.group.panoviewer">
+            <value>Panoramic Image Viewers</value>
+        </property>
         <property name="lg.director.hostname">
             <value>lg-head</value>
         </property>
