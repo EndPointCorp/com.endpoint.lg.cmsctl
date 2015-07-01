@@ -30,7 +30,9 @@
     <script type="text/javascript">
       if (typeof(IS) === 'undefined' || !IS.hasOwnProperty('Configuration')) {
         console.error('Configuration load failed, scheduling refresh');
-        setTimeout(window.location.reload, 1000);
+        setTimeout(function () {
+          window.location.reload();
+        }, 1000);
       }
     </script>
 
